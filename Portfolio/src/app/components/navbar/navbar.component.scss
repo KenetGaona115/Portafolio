@@ -1,0 +1,10 @@
+#sidebar {
+    min-width: 120px;
+    max-width: 120px;
+    min-height: 100vh;
+
+    :hover {
+        min-width: 130px;
+        max-width: 130px;
+    }
+}
