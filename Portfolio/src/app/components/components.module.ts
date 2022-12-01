@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { GroupComponent } from './group/group.component';
 
 
 
@@ -10,7 +11,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   declarations: [
     HomeComponent,
     NavbarComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    GroupComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   exports: [
     HomeComponent,
     NavbarComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    GroupComponent
   ]
 })
 export class ComponentsModule { }
