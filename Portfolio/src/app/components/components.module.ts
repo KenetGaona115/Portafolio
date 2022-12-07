@@ -4,7 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { GroupComponent } from './group/group.component';
+import { RegisterComponent } from './register/register.component';
 
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -12,16 +14,19 @@ import { GroupComponent } from './group/group.component';
     HomeComponent,
     NavbarComponent,
     ToolbarComponent,
-    GroupComponent
+    GroupComponent,
+    RegisterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule
   ],
   exports: [
     HomeComponent,
     NavbarComponent,
     ToolbarComponent,
-    GroupComponent
+    GroupComponent,
+    RegisterComponent
   ]
 })
 export class ComponentsModule { }

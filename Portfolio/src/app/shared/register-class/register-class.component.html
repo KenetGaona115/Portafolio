@@ -1,0 +1,15 @@
+<form #ClassForm ="ngForm" (ngSubmit)="submit()">
+    <div class="container pt-5">
+        <div class="row pb-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Nombre de materia" id="class" [(ngModel)]="classTeacher.name" required>
+            </div>
+
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Profesor" id="professor" [(ngModel)]="classTeacher.professor" required>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!ClassForm.form.invalid">Registrar</button>
+    </div>
+</form>
