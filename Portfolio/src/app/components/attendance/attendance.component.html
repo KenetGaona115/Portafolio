@@ -1,0 +1,20 @@
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Asistencia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users.users">
+                <th scope="row">{{user.id}}</th>
+                <td>{{user.firstName }}</td>
+                <td>{{user.lastName}}</td>
+                <td><mat-checkbox>Presente</mat-checkbox></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

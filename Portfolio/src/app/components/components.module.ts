@@ -7,6 +7,8 @@ import { GroupComponent } from './group/group.component';
 import { RegisterComponent } from './register/register.component';
 
 import { SharedModule } from '../shared/shared.module';
+import { AttendanceComponent } from './attendance/attendance.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -15,18 +17,21 @@ import { SharedModule } from '../shared/shared.module';
     NavbarComponent,
     ToolbarComponent,
     GroupComponent,
-    RegisterComponent
+    RegisterComponent,
+    AttendanceComponent
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    MatCheckboxModule
   ],
   exports: [
     HomeComponent,
     NavbarComponent,
     ToolbarComponent,
     GroupComponent,
-    RegisterComponent
+    RegisterComponent,
+    AttendanceComponent
   ]
 })
 export class ComponentsModule { }
