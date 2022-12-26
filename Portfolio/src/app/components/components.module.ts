@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { SharedModule } from '../shared/shared.module';
 import { AttendanceComponent } from './attendance/attendance.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
   imports: [
     CommonModule,
     SharedModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     HomeComponent,

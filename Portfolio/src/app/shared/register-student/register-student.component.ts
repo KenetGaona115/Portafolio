@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 
 @Component({
   selector: 'app-register-student',
@@ -12,7 +13,8 @@ export class RegisterStudentComponent implements OnInit {
   form: FormGroup = new FormGroup({});
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private apiService: ApiServiceService
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +30,7 @@ export class RegisterStudentComponent implements OnInit {
   }
 
   create(): void {
-    console.log('register')
+    this.apiService.createStudent(this.form)
   }
 
 }

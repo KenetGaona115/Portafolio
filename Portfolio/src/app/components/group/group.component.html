@@ -1,24 +1,29 @@
+<table class="table" *ngIf="$userData | async as userData; else showLoadState">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Universidad</th>
+      <th scope="col">Genero</th>
+      <th scope="col">Edad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users.users ">
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.firstName }}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.university | uppercase}}</td>
+      <td [ngStyle]="{'background-color':user.gender === 'male' ? 'whitesmoke' : 'pink' }">{{user.gender}}</td>
+      <td>{{user.age}}</td>
+    </tr>
+  </tbody>
+</table>
 
-<table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Apellido</th>
-        <th scope="col">Universidad</th>
-        <th scope="col">Genero</th>
-        <th scope="col">Edad</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users.users">
-        <th scope="row">{{user.id}}</th>
-        <td>{{user.firstName }}</td>
-        <td>{{user.lastName}}</td>
-        <td>{{user.university | uppercase}}</td>
-        <td [ngStyle]="{'background-color':user.gender === 'male' ? 'whitesmoke' : 'pink' }">{{user.gender}}</td>
-        <td>{{user.age}}</td>
-      </tr>
-    </tbody>
-  </table>
-  
+<ng-template #showLoadState>
+  <div class="row justify-content-center p-5 text-center">
+    <mat-spinner></mat-spinner>
+    <span class="p-2">Cargando...</span>
+  </div>
+</ng-template>
