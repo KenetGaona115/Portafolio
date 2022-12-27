@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription, map } from 'rxjs';
 import { User } from 'src/app/interfaces/user.interface';
+import { AlertService } from 'src/app/services/alert.service';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class GroupComponent implements OnInit {
 
 
   constructor(
-    private apiService: ApiServiceService
+    private apiService: ApiServiceService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +32,16 @@ export class GroupComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe()
+  }
+
+  deleteStudent(student: User): void {
+    this.apiService.deleteStudent(student).subscribe(
+      (response: any) => {
+        response.code == 200?
+        this.alertService.success("Alumno eliminado")
+        :this.alertService.error("Error al eliminar")
+      }
+    )
   }
 }
 

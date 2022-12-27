@@ -4,21 +4,28 @@ import { RegisterStudentComponent } from './register-student/register-student.co
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterClassComponent } from './register-class/register-class.component';
+import {MatSelectModule} from '@angular/material/select';
+import { StudentComponent } from './student/student.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
   declarations: [
     RegisterStudentComponent,
-    RegisterClassComponent
+    RegisterClassComponent,
+    StudentComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     RegisterStudentComponent,
-    RegisterClassComponent
+    RegisterClassComponent,
+    StudentComponent
   ]
 })
 export class SharedModule { }

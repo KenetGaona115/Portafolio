@@ -4,12 +4,13 @@ import { GroupComponent } from './components/group/group.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AttendanceComponent } from './components/attendance/attendance.component';
+import { StudentComponent } from './shared/student/student.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  {path: 'group', component: GroupComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'attendance', component: AttendanceComponent},
+  { path: 'group', component: GroupComponent, children: [{ path: 'student/:id', component: StudentComponent },] },
+  { path: 'register', component: RegisterComponent },
+  { path: 'attendance', component: AttendanceComponent },
   { path: '**', redirectTo: 'home' }
 ];
 

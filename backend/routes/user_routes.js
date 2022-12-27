@@ -14,7 +14,7 @@ const ERROR = {
 
 router.post('/createStudent', async function (req, res) {
     const student = req.body;
-
+    console.log(student)
     if (student.id)
         await db.createStudent(student) ? res.send(CORRECT) : res.send(ERROR)
     else
@@ -40,10 +40,9 @@ router.delete('/deleteStudent', async function (req, res) {
         res.send(ERROR)
 })
 
-router.get('/getStudent/:id', async function (req, res) {
-    const id = req.params.id;
-    console.log(id)
-    const response = await db.getStudentById(id)
+router.get('/getStudent/', async function (req, res) {
+    const id = req.query.id;
+    const response = id != "all" ? await db.getStudentById(id) : await db.getAllStudent()
 
     response != false ? res.send(response) : res.send(ERROR)
 })

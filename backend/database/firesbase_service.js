@@ -78,8 +78,18 @@ async function getStudentById(id) {
     return response
 }
 
+async function getAllStudent() {
+    const snapshot = await collectionStudents.get();
+    let array = [];
+    snapshot.forEach(doc => {
+        array.push(doc.data());
+    });
+    return array;
+}
+
 module.exports = {
     getStudentById: getStudentById,
+    getAllStudent: getAllStudent,
     createStudent: createStudent,
     updateStudent: updateStudent,
     deleteStudent: deleteStudent

@@ -10,7 +10,9 @@ import { SharedModule } from '../shared/shared.module';
 import { AttendanceComponent } from './attendance/attendance.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,16 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ToolbarComponent,
     GroupComponent,
     RegisterComponent,
-    AttendanceComponent
+    AttendanceComponent,
   ],
   imports: [
     CommonModule,
     SharedModule,
     MatCheckboxModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    MatIconModule,
+    RouterModule
   ],
   exports: [
     HomeComponent,
