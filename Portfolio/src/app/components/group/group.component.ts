@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription, map } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/interfaces/user.interface';
 import { AlertService } from 'src/app/services/alert.service';
 import { ApiServiceService } from 'src/app/services/api-service.service';
@@ -14,7 +14,6 @@ export class GroupComponent implements OnInit {
   private subscription: Subscription = new Subscription;
   //  users: User[] = [];
   users: any;
-
 
   constructor(
     private apiService: ApiServiceService,

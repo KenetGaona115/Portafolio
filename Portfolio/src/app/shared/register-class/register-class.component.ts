@@ -8,7 +8,7 @@ import { TeacherClass } from 'src/app/classes/TeacherClass';
 })
 export class RegisterClassComponent implements OnInit {
 
-  classTeacher :TeacherClass = new TeacherClass();
+  classTeacher: TeacherClass = new TeacherClass();
 
   constructor() { }
 
@@ -16,7 +16,7 @@ export class RegisterClassComponent implements OnInit {
 
   }
 
-  submit():any {
+  submit(): any {
     console.log('works')
   }
 

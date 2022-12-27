@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AttendanceComponent } from './components/attendance/attendance.component';
 import { GroupComponent } from './components/group/group.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
-import { AttendanceComponent } from './components/attendance/attendance.component';
 import { StudentComponent } from './shared/student/student.component';
 
 const routes: Routes = [

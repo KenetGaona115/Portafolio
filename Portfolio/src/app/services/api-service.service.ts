@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../interfaces/user.interface';
 import { FormGroup } from '@angular/forms';
+import { User } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,7 @@ export class ApiServiceService {
   }
 
   updateStudent(student: FormGroup, id?: string) {
-    return this.http.put<any>(this.URL + '/updateStudent',  this.getStudentFromData(student, id))
+    return this.http.put<any>(this.URL + '/updateStudent', this.getStudentFromData(student, id))
   }
 
   createStudent(data: any) {

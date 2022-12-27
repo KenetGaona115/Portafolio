@@ -16,7 +16,7 @@ export class AttendanceComponent implements OnInit {
   users: any;
 
   ngOnInit(): void {
-    this.apiService.getUsers().subscribe(response => { this.users = response; console.log(this.users); });
+    //this.apiService.getUsers().subscribe(response => { this.users = response; console.log(this.users); });
   }
 
 }
