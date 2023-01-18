@@ -26,7 +26,7 @@ export class GroupComponent implements OnInit {
 
   loadUsers(): void {
     this.$userData = this.apiService.getUsers()
-    this.subscription = this.$userData.subscribe(response => { this.users = response; console.log(this.users) });
+    this.subscription = this.$userData.subscribe(response => { this.users = response });
   }
 
   ngOnDestroy(): void {
@@ -34,11 +34,12 @@ export class GroupComponent implements OnInit {
   }
 
   deleteStudent(student: User): void {
+    this.users = this.users.filter((alu: any) => alu.id !== student.id);
     this.apiService.deleteStudent(student).subscribe(
       (response: any) => {
-        response.code == 200?
-        this.alertService.success("Alumno eliminado")
-        :this.alertService.error("Error al eliminar")
+        response.code == 200 ?
+          this.alertService.success("Alumno eliminado")
+          : this.alertService.error("Error al eliminar")
       }
     )
   }

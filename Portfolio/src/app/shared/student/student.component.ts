@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
@@ -26,7 +26,6 @@ export class StudentComponent implements OnInit {
   ) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => { return false; };
   }
-
   ngOnInit(): void {
     this.loadData()
   }
@@ -54,9 +53,11 @@ export class StudentComponent implements OnInit {
   saveChanges(): void {
     this.apiService.updateStudent(this.form, this.student.id).subscribe(
       (data: any) => {
-        data.code == 200 ?
+        if (data.code == 200) {
           this.alertService.success("Cambios guardados")
-          : this.alertService.error("Error al guardar alumno")
+          this.router.navigate(['/group'])
+        } else
+          this.alertService.error("Error al guardar alumno")
       }
     )
   }
