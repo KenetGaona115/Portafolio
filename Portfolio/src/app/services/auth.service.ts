@@ -2,6 +2,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AlertService } from './alert.service';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from '../store/app.reducer';
+import { LOGIN } from '../store/login/login.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +16,8 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private alertService: AlertService,
-    private router: Router
+    private router: Router,
+    private readonly store: Store<AppState>
   ) { }
 
   isAuthenticated() {
@@ -31,6 +35,7 @@ export class AuthService {
         } else {
           this.alertService.success(next.rol == 0 ? 'inicio de sesion correcto maestro' : 'inicio de sesion correcto Admin')
           localStorage.setItem('user', JSON.stringify(next));
+          this.store.dispatch(LOGIN({ isLogged: true, user: next }))
           this.router.navigate(['/home']);
         }
       }

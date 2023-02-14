@@ -7,13 +7,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { RegisterClassComponent } from './register-class/register-class.component';
 import { StudentComponent } from './student/student.component';
+import { RegisterProffesorComponent } from './register-proffesor/register-proffesor.component';
 
 
 @NgModule({
   declarations: [
     RegisterStudentComponent,
     RegisterClassComponent,
-    StudentComponent
+    StudentComponent,
+    RegisterProffesorComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { StudentComponent } from './student/student.component';
   exports: [
     RegisterStudentComponent,
     RegisterClassComponent,
+    RegisterProffesorComponent,
     StudentComponent
   ]
 })

@@ -1,12 +1,22 @@
-<form #ClassForm ="ngForm" (ngSubmit)="submit()">
+<form #ClassForm="ngForm" (ngSubmit)="submit()">
     <div class="container pt-5">
         <div class="row pb-3">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Nombre de materia" id="class" [(ngModel)]="classTeacher.name" required name="name">
+                <input type="text" class="form-control" placeholder="Nombre de materia" id="class"
+                    [(ngModel)]="classTeacher.name" required name="name">
             </div>
 
             <div class="col">
-                <input type="text" class="form-control" placeholder="Profesor" id="professor" [(ngModel)]="classTeacher.professor" required name="professor">
+                <!-- <input type="text" class="form-control" placeholder="Profesor" id="professor"
+                    [(ngModel)]="classTeacher.professor" required name="professor"> -->
+                <mat-form-field appearance="fill">
+                    <mat-label>Profesor</mat-label>
+                    <mat-select [(ngModel)]="classTeacher.professor" name="food">
+                        <mat-option *ngFor="let value of teacher" [value]="value.firstName">
+                            {{value.firstName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
         </div>
 

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { AuthService } from 'src/app/services/auth.service';
+import { AppState } from 'src/app/store/app.reducer';
+import { LOGOUT } from 'src/app/store/login/login.actions';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +14,8 @@ export class NavbarComponent implements OnInit {
   isAdmin: boolean = false;
   isLoggedIn: boolean = false;
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private readonly store: Store<AppState>
   ) { }
 
   ngOnInit(): void {
@@ -21,6 +25,7 @@ export class NavbarComponent implements OnInit {
 
 
   logout(): void {
+    this.store.dispatch(LOGOUT())
     this.authService.logout()
   }
 }

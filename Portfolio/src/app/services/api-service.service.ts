@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { User } from '../interfaces/user.interface';
+import { Class } from '../interfaces/assigment.inteface';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,22 @@ export class ApiServiceService {
     return this.http.delete(this.URL + '/deleteStudent', { body: data })
   }
 
+  createProfessor(data: any) {
+    return this.http.post(this.URL + '/createProffesor', this.createProffesorFromData(data))
+  }
+
+  getProffesors() {
+    return this.http.get<User[]>(this.URL + '/getProffesors')
+  }
+
+  createClass(data: any) {
+    return this.http.post(this.URL + '/createStudent', data)
+  }
+
+  getClass() {
+    return this.http.get<Class[]>(this.URL + '/getClass')
+  }
+
   private createStudentFromData(data: FormGroup) {
     let student = new User();
     student.firstName = data.controls["firstName"].value
@@ -48,6 +65,13 @@ export class ApiServiceService {
     student.id = new Date().getTime().toString()
 
     return student;
+  }
+
+  private createProffesorFromData(data: FormGroup) {
+    let proffesor = new User()
+    proffesor = data.value
+    proffesor.id = new Date().getTime().toString()
+    return proffesor
   }
 
   private getStudentFromData(data: FormGroup, id?: string) {

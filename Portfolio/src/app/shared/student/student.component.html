@@ -46,6 +46,16 @@
                     Requerido
                 </div>
             </div>
+            <div class="col-2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Toppings</mat-label>
+                    <mat-select formControlName="assigemts" multiple>
+                      <mat-option *ngFor="let topping of class" [value]="topping">{{topping}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  
+            </div>
+            
         </div>
         <button type="submit" class="btn btn-primary">Guardar cambios</button>
     </div>
